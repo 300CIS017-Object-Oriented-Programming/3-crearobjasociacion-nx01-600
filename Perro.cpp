@@ -3,8 +3,13 @@
 
 using namespace std;
 
-Perro::Perro(int edad, string nombre, string raza, string tamanio, string color)
-    : edad(edad), nombre(nombre), raza(raza), tamanio(tamanio), color(color), pPropietario(nullptr), pVeterinario(nullptr){}
+Perro::Perro(string nombre, int edad, string raza, string color, string tamanio) {
+    this->nombre = nombre;
+    this->edad = edad;
+    this->raza = raza;
+    this->color = color;
+    this->tamanio = tamanio;
+}
 
 void Perro::ladrar(){cout << "Guau Guau" << endl;}
 
