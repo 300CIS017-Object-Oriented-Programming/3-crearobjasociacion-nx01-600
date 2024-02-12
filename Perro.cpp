@@ -1,79 +1,41 @@
 #include "Perro.h"
 #include <iostream>
 
+using namespace std;
 
-// Ejemplo de constructor por defecto con lista inicializadora
-// Perro::Perro() : edad(0), raza(""), tamanio(""), color("") {}
+Perro::Perro(int edad, string nombre, string raza, string tamanio, string color)
+    : edad(edad), nombre(nombre), raza(raza), tamanio(tamanio), color(color), pPropietario(nullptr), pVeterinario(nullptr){}
 
-// Ejemplo de constructor por defecto iniciando los atributos en el cuerpo del constructor
-Perro::Perro() {
-    this->edad = 0;
-    this->raza = "";
-    this->tamanio = "";
-    this->color = "";
-}
+void Perro::ladrar(){cout << "Guau Guau" << endl;}
 
-void Perro::ladrar() {
-    std::cout << "Guau Guau" << std::endl;
-}
+void Perro::agregarPropietario(string nombre, string docIdentidad){this->pPropietario = new Propietario(nombre, docIdentidad);}
 
-void Perro::agregarPropietario(std::string nombre, std::string docIdentidad) {
-    // Asocia a la variable de instancia pPropietario un nuevo pPropietario
-    // Es memoria dinámica, en el destructor se debe liberar
-    this->pPropietario = new Propietario(nombre, docIdentidad);
-}
+void Perro::setPropietario(Propietario *pPropietario){this->pPropietario = pPropietario;}
 
-void Perro::setPropietario(Propietario *pPropietario) {
-    this->pPropietario = pPropietario;
-}
-Propietario *Perro::getPropietario() {
-    return this->pPropietario;
-}
+Propietario *Perro::getPropietario(){return this->pPropietario;}
 
-int Perro::getEdad() {
-    return edad;
-}
+int Perro::getEdad(){return edad;}
 
-void Perro::setEdad(int edad) {
-    this->edad = edad;
-}
+void Perro::setEdad(int edad){this->edad = edad;}
 
-std::string Perro::getRaza() {
-    return raza;
-}
+string Perro::getRaza(){return raza;}
 
-void Perro::setRaza(std::string raza) {
-    this->raza = raza;
-}
+void Perro::setRaza(string raza){this->raza = raza;}
 
-std::string Perro::getTamanio() {
-    return tamanio;
-}
+string Perro::getNombre(){return nombre;}
 
-void Perro::setTamanio(std::string tamanio) {
-    this->tamanio = tamanio;
-}
+void Perro::setNombre(string nombre){this->nombre = nombre;}
 
-std::string Perro::getNombre() {
-    return nombre;
-}
+string Perro::getTamanio(){return tamanio;}
 
-void Perro::setNombre(std::string nombre) {
-    this->nombre = nombre;
-}
+void Perro::setTamanio(string tamanio){this->tamanio = tamanio;}
 
-std::string Perro::getColor() {
-    return color;
-}
+string Perro::getColor(){return color;}
 
-void Perro::setColor(std::string color) {
-    this->color = color;
-}
+void Perro::setColor(string color){this->color = color;}
 
-Perro::~Perro() {
-    delete pPropietario;
-}
+void Perro::asociarVeterinario(Veterinario* pVeterinario){this->pVeterinario = pVeterinario;}
 
+Veterinario* Perro::getVeterinario(){return this->pVeterinario;}
 
-
-
+Perro::~Perro(){delete pPropietario;}
